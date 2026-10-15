@@ -7,7 +7,18 @@
     <title>تِك وردي | TECH WARDI</title>
     <meta name="description" content="تِك وردي — مبادرة توعوية بسرطان الثدي.">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- ترتيب التحميل مقصود: base → layout → components → features → utilities -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/features/hero.css">
+    <link rel="stylesheet" href="css/features/countdown.css">
+    <link rel="stylesheet" href="css/features/hope-wall.css">
+    <link rel="stylesheet" href="css/features/quiz.css">
+    <link rel="stylesheet" href="css/features/learn.css">
+    <link rel="stylesheet" href="css/features/impact.css">
+    <link rel="stylesheet" href="css/features/event.css">
+    <link rel="stylesheet" href="css/utilities.css">
 </head>
 
 <body>
@@ -27,63 +38,105 @@
 
     <main>
 
+        <!-- العدّاد التنازلي -->
+        <section id="countdown" aria-label="العدّ التنازلي للفعالية">
+            <h2>يبدأ الحدث بعد</h2>
+
+            <div id="countdown-grid" class="countdown-grid">
+                <div class="countdown-cell">
+                    <span id="cd-days" class="countdown-value">--</span>
+                    <span class="countdown-label">يوم</span>
+                </div>
+                <div class="countdown-cell">
+                    <span id="cd-hours" class="countdown-value">--</span>
+                    <span class="countdown-label">ساعة</span>
+                </div>
+                <div class="countdown-cell">
+                    <span id="cd-minutes" class="countdown-value">--</span>
+                    <span class="countdown-label">دقيقة</span>
+                </div>
+                <div class="countdown-cell">
+                    <span id="cd-seconds" class="countdown-value">--</span>
+                    <span class="countdown-label">ثانية</span>
+                </div>
+            </div>
+
+            <p id="countdown-status" aria-live="polite"></p>
+        </section>
+
+        <!-- القسم الرئيسي -->
         <section id="home">
             <p>[TECH WARDI brand]</p>
             <h1>[عنوان رئيسي]</h1>
             <p>[وصف قصير]</p>
-            <a href="#wall">[زر: حائط الأمل]</a>
-            <a href="#quiz">[زر: تحدي الوعي]</a>
+
+            <a href="#wall">[زر: اكتب رسالة أمل]</a>
+            <a href="#quiz">[زر: ابدأ تحدي الوعي]</a>
         </section>
 
+        <!-- حائط الأمل -->
         <section id="wall">
             <h2>حائط الأمل</h2>
-            <p>[وصف مختصر]</p>
+            <p>[وصف مختصر — سيظهر بعد المراجعة]</p>
 
             <form id="message-form">
                 <label for="message">رسالتك</label>
+
                 <textarea
                     id="message"
                     name="message"
-                    placeholder="[placeholder]"
+                    placeholder="[اكتب رسالة أمل…]"
                     required
                     maxlength="500"
                 ></textarea>
+
                 <button type="submit">إرسال الرسالة</button>
             </form>
 
             <div id="messages-list"></div>
         </section>
 
+        <!-- تحدي الوعي -->
         <section id="quiz">
             <h2>تحدي الوعي</h2>
-            <p>[وصف مختصر]</p>
+            <p>[وصف مختصر — اختبر معلوماتك]</p>
 
             <div id="quiz-container"></div>
 
             <button id="start-quiz" type="button">ابدأ الاختبار</button>
+
             <p id="quiz-result"></p>
         </section>
 
+        <!-- اعرف أكثر -->
         <section id="learn">
             <h2>اعرف أكثر</h2>
-            <p>[وصف مختصر]</p>
+            <p>[وصف مختصر — معلومات موثوقة]</p>
 
             <div id="health-information">
                 <div class="health-card">
                     <h3>[عنوان بطاقة 1]</h3>
                     <p>[نص بطاقة 1]</p>
                 </div>
+
                 <div class="health-card">
                     <h3>[عنوان بطاقة 2]</h3>
                     <p>[نص بطاقة 2]</p>
                 </div>
+
                 <div class="health-card">
                     <h3>[عنوان بطاقة 3]</h3>
                     <p>[نص بطاقة 3]</p>
                 </div>
+
+                <div class="health-card">
+                    <h3>[عنوان بطاقة 4]</h3>
+                    <p>[نص بطاقة 4]</p>
+                </div>
             </div>
         </section>
 
+        <!-- عداد الأثر -->
         <section id="impact">
             <h2>أثرنا معًا</h2>
 
@@ -98,15 +151,20 @@
             </div>
         </section>
 
+        <!-- عن الفعالية -->
         <section id="event">
             <h2>عن الفعالية</h2>
+
             <p>[وصف الفعالية]</p>
+            <p>[الموعد]</p>
+            <p>[المكان]</p>
+            <p>[الجهات المشاركة]</p>
         </section>
 
     </main>
 
     <footer>
-        <p>[footer]</p>
+        <p>[footer — تِك وردي 💗]</p>
     </footer>
 
     <script type="module" src="js/main.js"></script>
