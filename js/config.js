@@ -31,5 +31,5 @@ export const FEATURES = Object.freeze({
     quiz: true,
     hopeWall: true,
     counters: true,
-    countdown: false,
+    countdown: true,
 });
