@@ -1,11 +1,8 @@
-/**
- * main.js — نقطة الدخول الوحيدة.
- */
-
 import { APP, FEATURES } from "./config.js";
 import { initCounters } from "./features/impact-counters.js";
 import { initQuiz } from "./features/quiz.js";
 import { initHopeWall } from "./features/hope-wall.js";
+import { initCountdown } from "./features/countdown.js";   // ← جديد
 
 const TAG = "[techwardi]";
 
@@ -21,6 +18,7 @@ function boot() {
     console.info(`${TAG} v${APP.version} — بدء التشغيل`);
 
     const queue = [
+        { name: "countdown", enabled: FEATURES.countdown, fn: initCountdown },
         { name: "counters", enabled: FEATURES.counters, fn: initCounters },
         { name: "quiz", enabled: FEATURES.quiz, fn: initQuiz },
         { name: "hopeWall", enabled: FEATURES.hopeWall, fn: initHopeWall },
