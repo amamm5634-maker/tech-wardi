@@ -1,0 +1,57 @@
+#health-information:not(:empty) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+#health-information .health-card {
+    background: var(--white);
+    padding: 22px;
+    border: 1px solid #f5d5e2;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#health-information .health-card:hover {
+    transform: translateY(-5px);
+    border-color: #e8a5bf;
+    box-shadow: var(--shadow-md);
+}
+
+#health-information .health-card h3 {
+    color: var(--dark-pink);
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+#health-information .health-card p {
+    font-size: 15px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+#health-information .health-card ul {
+    padding-right: 22px;
+    margin-bottom: 14px;
+}
+
+#health-information .health-card li { margin-bottom: 8px; line-height: 1.8; }
+
+#health-information .health-card a {
+    color: var(--dark-pink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+#health-information .health-card a:hover { color: var(--pink); }
+
+@media (hover: none) {
+    #health-information .health-card:hover { transform: none; }
+}
+
+@media (max-width: 600px) {
+    #health-information:not(:empty) { grid-template-columns: 1fr; gap: 14px; }
+    #health-information .health-card { padding: 18px; }
+}
