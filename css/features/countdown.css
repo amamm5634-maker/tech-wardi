@@ -45,3 +45,31 @@
     .countdown-cell { padding: 14px 6px; }
     .countdown-label { font-size: 12px; }
 }
+/* بعد انتهاء الفعالية: أبرز الرسالة وأخفِ الشبكة */
+#countdown.is-complete .countdown-grid {
+    display: none;
+}
+
+#countdown.is-complete #countdown-status {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dark-pink);
+    margin-top: 0;
+}
+@keyframes countdown-pulse {
+    0%   { transform: scale(1);    color: var(--dark-pink); }
+    35%  { transform: scale(1.15); color: var(--pink); }
+    100% { transform: scale(1);    color: var(--dark-pink); }
+}
+
+.countdown-value {
+    display: inline-block;   /* يضمن أن transform يعمل حتى لو تغير الأب */
+    transition: color 0.2s ease;
+}
+
+.countdown-value.is-tick {
+    animation: countdown-pulse 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+    .countdown-value.is-tick { animation: none; }
+}

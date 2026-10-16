@@ -55,3 +55,7 @@
     #health-information:not(:empty) { grid-template-columns: 1fr; gap: 14px; }
     #health-information .health-card { padding: 18px; }
 }
+/* البطاقة الخامسة اليتيمة تمتد على عمودين */
+#health-information .health-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}

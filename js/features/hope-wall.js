@@ -42,6 +42,11 @@ async function onSubmit(event) {
     }
 
     const submitBtn = ui.form.querySelector('button[type="submit"]');
+    if (!submitBtn) {
+        console.error(`${TAG} زر الإرسال غير موجود`);
+        return;
+    }
+
     submitBtn.disabled = true;
     setStatus("جارٍ الإرسال…", "info");
 
@@ -54,6 +59,12 @@ async function onSubmit(event) {
 
         ui.form.reset();
         setStatus("وصلت رسالتك، ستظهر بعد المراجعة 💗", "ok");
+
+        // قد يعتمد المشرف الرسالة خلال ثوانٍ — ننعش العرض قريبًا
+        setTimeout(() => {
+            loadApprovedMessages();
+            refreshMessagesCount();
+        }, 5_000);
     } catch (error) {
         console.error(`${TAG} فشل الإرسال:`, error);
         setStatus("تعذر الإرسال. حاول مجددًا.", "error");

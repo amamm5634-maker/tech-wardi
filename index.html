@@ -2,12 +2,31 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>تِك وردي | TECH WARDI</title>
     <meta name="description" content="تِك وردي — مبادرة توعوية لطلاب علوم الحاسوب والتمريض بجامعة بحري، لنشر الوعي بسرطان الثدي وتعزيز الأمل والكشف المبكر.">
 
-    <!-- ترتيب التحميل مقصود: base → layout → components → features → utilities -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="تِك وردي | TECH WARDI">
+    <meta property="og:description" content="مبادرة توعوية بسرطان الثدي — اختبر معلوماتك، شارك كلمة أمل، واعرف أكثر.">
+    <meta property="og:locale" content="ar_SD">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="تِك وردي | TECH WARDI">
+    <meta name="twitter:description" content="مبادرة توعوية بسرطان الثدي.">
+    
+    <!-- Theme + Icons -->
+    <meta name="theme-color" content="#d94f83">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS: base → layout → components → features → utilities -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
@@ -18,10 +37,18 @@
     <link rel="stylesheet" href="css/features/learn.css">
     <link rel="stylesheet" href="css/features/impact.css">
     <link rel="stylesheet" href="css/features/event.css">
+    <link rel="stylesheet" href="css/features/share.css">
     <link rel="stylesheet" href="css/utilities.css">
 </head>
 
 <body>
+
+    <noscript>
+        <p style="padding: 24px; text-align: center; background: #fff0f5;">
+            هذا الموقع يحتاج JavaScript لعرض الاختبار وحائط الأمل.
+            يمكنك مع ذلك قراءة المعلومات الصحية بالتمرير.
+        </p>
+    </noscript>
 
     <header>
         <nav>
@@ -31,12 +58,26 @@
                 <li><a href="#wall">حائط الأمل</a></li>
                 <li><a href="#quiz">تحدي الوعي</a></li>
                 <li><a href="#learn">اعرف أكثر</a></li>
+                <li><a href="#impact">أثرنا</a></li>
                 <li><a href="#event">عن الفعالية</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+
+        <!-- القسم الرئيسي -->
+        <section id="home">
+            <p>TECH WARDI | تِك وردي</p>
+            <h1>كل رسالة دعم تصنع فرقًا 💗</h1>
+            <p>
+                كل معلومة تزيد الوعي، وكل كلمة أمل
+                قد تصنع فرقًا في حياة شخص آخر.
+            </p>
+
+            <a href="#wall">اكتب رسالة أمل</a>
+            <a href="#quiz">ابدأ تحدي الوعي</a>
+        </section>
 
         <!-- العدّاد التنازلي -->
         <section id="countdown" aria-label="العدّ التنازلي للفعالية">
@@ -62,19 +103,6 @@
             </div>
 
             <p id="countdown-status" aria-live="polite"></p>
-        </section>
-
-        <!-- القسم الرئيسي -->
-        <section id="home">
-            <p>TECH WARDI | تِك وردي</p>
-            <h1>كل رسالة دعم تصنع فرقًا 💗</h1>
-            <p>
-                كل معلومة تزيد الوعي، وكل كلمة أمل
-                قد تصنع فرقًا في حياة شخص آخر.
-            </p>
-
-            <a href="#wall">اكتب رسالة أمل</a>
-            <a href="#quiz">ابدأ تحدي الوعي</a>
         </section>
 
         <!-- حائط الأمل -->
@@ -226,10 +254,32 @@
             </p>
         </section>
 
+        <!-- شارك الموقع -->
+        <section id="share" aria-label="شارك الموقع">
+    <h2>ساهم في نشر الوعي</h2>
+    <p>
+        شارك الموقع مع أصدقائك — كل مشاركة قد تصل لشخص يحتاجها.
+    </p>
+    <div class="share-actions">
+        <button id="share-button" type="button">شارك الموقع 💗</button>
+        <button id="copy-button" type="button" class="btn-secondary">انسخ الرابط</button>
+    </div>
+    <p id="share-status" aria-live="polite"></p>
+        </section>
+
     </main>
 
-    <footer>
-        <p>تِك وردي 💗 — معًا لنشر الوعي والأمل.</p>
+   <footer>
+    <p class="footer-tagline">تِك وردي 💗 — معًا لنشر الوعي والأمل.</p>
+
+    <p class="footer-contact">
+        <a href="mailto:CONTACT_EMAIL">[البريد الإلكتروني]</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://instagram.com/CONTACT_INSTAGRAM"
+           target="_blank" rel="noopener noreferrer">[إنستغرام]</a>
+    </p>
+
+    <p class="footer-copy" id="footer-year"></p>
     </footer>
 
     <script type="module" src="js/main.js"></script>

@@ -1,35 +1,60 @@
-/**
- * config.js — ثوابت الموقع العامة.
- */
+import { APP, FEATURES } from "./config.js";
+import { initCounters } from "./features/impact-counters.js";
+import { initQuiz } from "./features/quiz.js";
+import { initHopeWall } from "./features/hope-wall.js";
+import { initCountdown } from "./features/countdown.js";
+import { initShare } from "./features/share.js";
 
-export const APP = Object.freeze({
-    name: "تِك وردي",
-    nameEn: "TECH WARDI",
-    version: "0.1.0",
-    // ISO 8601 بتوقيت السودان (UTC+2) — يقرؤه Intl بشكل صحيح
-    eventDate: "2026-10-20T10:00:00+02:00",
+const TAG = "[techwardi]";
+
+function onReady(fn) {
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+        fn();
+    }
+}
+
+function setFooterYear() {
+    const el = document.getElementById("footer-year");
+    if (!el) return;
+    el.textContent = `© ${new Date().getFullYear()} ${APP.name}`;
+}
+
+function boot() {
+    console.info(`${TAG} v${APP.version} — بدء التشغيل`);
+
+    setFooterYear();
+
+    const queue = [
+        { name: "countdown", enabled: FEATURES.countdown, fn: initCountdown },
+        { name: "counters", enabled: FEATURES.counters, fn: initCounters },
+        { name: "quiz", enabled: FEATURES.quiz, fn: initQuiz },
+        { name: "hopeWall", enabled: FEATURES.hopeWall, fn: initHopeWall },
+        { name: "share", enabled: FEATURES.share, fn: initShare },
+    ];
+
+    for (const { name, enabled, fn } of queue) {
+        if (!enabled) {
+            console.info(`${TAG} "${name}" معطّلة عبر FEATURES`);
+            continue;
+        }
+        try {
+            fn();
+        } catch (error) {
+            console.error(`${TAG} فشل تهيئة "${name}":`, error);
+        }
+    }
+
+    console.info(`${TAG} جاهز`);
+}
+
+window.addEventListener("error", (event) => {
+    console.error(`${TAG} [خطأ غير معالَج]`, event.error || event.message);
 });
 
-// المفتاح publishable مُخصَّص للنشر العلني؛ الحماية الفعلية من RLS في Supabase.
-export const SUPABASE = Object.freeze({
-    url: "https://cpasmtfafirifugkijvw.supabase.co",
-    publishableKey: "sb_publishable_iDtwCMg0rA2oNLMdmgQkIg_LamoTVXQ",
+window.addEventListener("unhandledrejection", (event) => {
+    console.error(`${TAG} [وعد مرفوض]`, event.reason);
 });
 
-export const QUIZ = Object.freeze({
-    size: 10,
-});
-
-export const MESSAGES = Object.freeze({
-    maxLength: 500,
-    fetchLimit: 50,
-    refreshIntervalMs: 30_000,
-});
-
-// أعلام تشغيل/إيقاف ميزة دون حذف كودها
-export const FEATURES = Object.freeze({
-    quiz: true,
-    hopeWall: true,
-    counters: true,
-    countdown: true,
-});
+onReady(boot);
