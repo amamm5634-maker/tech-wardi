@@ -18,6 +18,10 @@ export function initCounters() {
         return;
     }
 
+    // حالة تحميل أولية
+    if (ui.quiz) ui.quiz.textContent = "…";
+    if (ui.messages) ui.messages.textContent = "…";
+
     refreshQuizCount();
     refreshMessagesCount();
 
