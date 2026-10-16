@@ -85,3 +85,26 @@
     #messages-list article { padding: 12px; }
     #messages-list article p { font-size: 14px; line-height: 1.7; }
 }
+/* رسائل الحالة (تحميل/فراغ/خطأ) تمتد على عمودَي الشبكة وتتوسط */
+#messages-list > p {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--muted);
+    padding: 20px;
+}
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    20%      { transform: scale(1.18); }
+    40%      { transform: scale(1); }
+    60%      { transform: scale(1.12); }
+    80%      { transform: scale(1); }
+}
+
+#messages-list article:hover::before {
+    animation: heartbeat 1.2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+    #messages-list article:hover::before { animation: none; }
+}
