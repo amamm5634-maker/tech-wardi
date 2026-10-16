@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تِك وردي | TECH WARDI</title>
+    <meta name="description" content="تِك وردي — مبادرة توعوية لطلاب علوم الحاسوب والتمريض بجامعة بحري، لنشر الوعي بسرطان الثدي وتعزيز الأمل والكشف المبكر.">
+
+    <!-- ترتيب التحميل مقصود: base → layout → components → features → utilities -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/features/hero.css">
+    <link rel="stylesheet" href="css/features/countdown.css">
+    <link rel="stylesheet" href="css/features/hope-wall.css">
+    <link rel="stylesheet" href="css/features/quiz.css">
+    <link rel="stylesheet" href="css/features/learn.css">
+    <link rel="stylesheet" href="css/features/impact.css">
+    <link rel="stylesheet" href="css/features/event.css">
+    <link rel="stylesheet" href="css/utilities.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">تِك وردي 💗</a>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#wall">حائط الأمل</a></li>
+                <li><a href="#quiz">تحدي الوعي</a></li>
+                <li><a href="#learn">اعرف أكثر</a></li>
+                <li><a href="#event">عن الفعالية</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- العدّاد التنازلي -->
+        <section id="countdown" aria-label="العدّ التنازلي للفعالية">
+            <h2>يبدأ الحدث بعد</h2>
+
+            <div id="countdown-grid" class="countdown-grid">
+                <div class="countdown-cell">
+                    <span id="cd-days" class="countdown-value">--</span>
+                    <span class="countdown-label">يوم</span>
+                </div>
+                <div class="countdown-cell">
+                    <span id="cd-hours" class="countdown-value">--</span>
+                    <span class="countdown-label">ساعة</span>
+                </div>
+                <div class="countdown-cell">
+                    <span id="cd-minutes" class="countdown-value">--</span>
+                    <span class="countdown-label">دقيقة</span>
+                </div>
+                <div class="countdown-cell">
+                    <span id="cd-seconds" class="countdown-value">--</span>
+                    <span class="countdown-label">ثانية</span>
+                </div>
+            </div>
+
+            <p id="countdown-status" aria-live="polite"></p>
+        </section>
+
+        <!-- القسم الرئيسي -->
+        <section id="home">
+            <p>TECH WARDI | تِك وردي</p>
+            <h1>كل رسالة دعم تصنع فرقًا 💗</h1>
+            <p>
+                كل معلومة تزيد الوعي، وكل كلمة أمل
+                قد تصنع فرقًا في حياة شخص آخر.
+            </p>
+
+            <a href="#wall">اكتب رسالة أمل</a>
+            <a href="#quiz">ابدأ تحدي الوعي</a>
+        </section>
+
+        <!-- حائط الأمل -->
+        <section id="wall">
+            <h2>حائط الأمل</h2>
+            <p>
+                شارك رسالة دعم أو كلمة تشجيع.
+                ستظهر الرسائل بعد مراجعتها والموافقة عليها.
+            </p>
+
+            <form id="message-form">
+                <label for="message">رسالتك</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="اكتب رسالة أمل..."
+                    required
+                    maxlength="500"
+                ></textarea>
+
+                <button type="submit">إرسال الرسالة</button>
+            </form>
+
+            <div id="messages-list"></div>
+        </section>
+
+        <!-- تحدي الوعي -->
+        <section id="quiz">
+            <h2>تحدي الوعي</h2>
+            <p>
+                اختبر معلوماتك عن سرطان الثدي
+                وتعلّم معلومات جديدة.
+            </p>
+
+            <div id="quiz-container"></div>
+
+            <button id="start-quiz" type="button">ابدأ الاختبار</button>
+
+            <p id="quiz-result"></p>
+        </section>
+
+        <!-- اعرف أكثر -->
+        <section id="learn">
+            <h2>اعرف أكثر</h2>
+            <p>
+                المعرفة الموثوقة تساعدنا على فهم سرطان الثدي
+                وأهمية الكشف المبكر.
+            </p>
+
+            <div id="health-information">
+
+                <div class="health-card">
+                    <h3>🎗️ ما هو سرطان الثدي؟</h3>
+                    <p>
+                        يحدث سرطان الثدي عندما تنمو خلايا غير طبيعية في أنسجة
+                        الثدي بصورة غير مسيطر عليها. ويمكن أن يصيب النساء
+                        والرجال، رغم أنه أكثر شيوعًا لدى النساء.
+                    </p>
+                </div>
+
+                <div class="health-card">
+                    <h3>🔎 علامات تستحق الانتباه</h3>
+                    <ul>
+                        <li>ظهور كتلة أو سماكة جديدة في الثدي أو تحت الإبط.</li>
+                        <li>تغيّر ملحوظ في حجم الثدي أو شكله.</li>
+                        <li>تغيّرات في الجلد، مثل التنقّر أو الاحمرار.</li>
+                        <li>تغيّر جديد في الحلمة أو خروج إفرازات غير معتادة.</li>
+                    </ul>
+                    <p>
+                        وجود هذه العلامات لا يعني بالضرورة الإصابة بالسرطان،
+                        لكن من المهم مراجعة مختص صحي عند ملاحظة تغيّر جديد.
+                    </p>
+                </div>
+
+                <div class="health-card">
+                    <h3>💗 لماذا يهم الكشف المبكر؟</h3>
+                    <p>
+                        يساعد اكتشاف سرطان الثدي وتشخيصه مبكرًا على بدء
+                        العلاج في الوقت المناسب، وقد يزيد فرص نجاح العلاج.
+                        لا تنتظري ظهور الألم حتى تطلبي المشورة الطبية.
+                    </p>
+                </div>
+
+                <div class="health-card">
+                    <h3>🩺 كيف أهتم بصحة الثدي؟</h3>
+                    <p>
+                        تعرّفي على الشكل الطبيعي لثدييك، وانتَبهي لأي تغيّر
+                        جديد. تحدثي مع مختص صحي عن الفحوصات المناسبة لك
+                        بحسب العمر والتاريخ العائلي وعوامل الخطورة.
+                    </p>
+                </div>
+
+                <div class="health-card">
+                    <h3>📚 مصادر موثوقة للمزيد من المعلومات</h3>
+                    <ul>
+                        <li>
+                            <a href="https://www.who.int/news-room/fact-sheets/detail/breast-cancer"
+                               target="_blank" rel="noopener noreferrer">
+                                منظمة الصحة العالمية: معلومات عن سرطان الثدي
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cancer.gov/types/breast/symptoms"
+                               target="_blank" rel="noopener noreferrer">
+                                المعهد الوطني الأمريكي للسرطان: العلامات والأعراض
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cancer.gov/types/breast/screening"
+                               target="_blank" rel="noopener noreferrer">
+                                المعهد الوطني الأمريكي للسرطان: فحوصات الكشف
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- عداد الأثر -->
+        <section id="impact">
+            <h2>أثرنا معًا</h2>
+
+            <div class="impact-card">
+                <h3 id="quiz-count">0</h3>
+                <p>مشاركة في الاختبار</p>
+            </div>
+
+            <div class="impact-card">
+                <h3 id="messages-count">0</h3>
+                <p>رسالة معتمدة</p>
+            </div>
+        </section>
+
+        <!-- عن الفعالية -->
+        <section id="event">
+            <h2>عن الفعالية</h2>
+
+            <p>فعالية تِك وردي للتوعية بسرطان الثدي.</p>
+
+            <p>الموعد: الثلاثاء 20 أكتوبر 2026، بعد التأكيد النهائي.</p>
+
+            <p>المكان: جامعة بحري، سيتم تأكيده من اللجنة.</p>
+
+            <p>
+                بالتعاون بين طلاب كلية علوم الحاسوب
+                وطلاب كلية التمريض.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>تِك وردي 💗 — معًا لنشر الوعي والأمل.</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
