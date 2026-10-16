@@ -69,3 +69,27 @@
     #quiz-options { gap: 10px; margin: 16px 0; }
     #quiz-container .quiz-option { padding: 11px 13px; font-size: 15px; }
 }
+#answer-explanation {
+    margin-top: 4px;
+    padding: 10px 14px;
+    background-color: #fff8fb;
+    border-right: 3px solid var(--pink);
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+.quiz-progress {
+    height: 6px;
+    background-color: #f5d5e2;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.quiz-progress-bar {
+    height: 100%;
+    background-color: var(--pink);
+    border-radius: 3px;
+    transition: width 0.35s ease;
+}
