@@ -1,2 +1,2 @@
 رابط الموقع:
-https://tech-wardi.pages.dev/
+https://tech-wardi.pages.dev
