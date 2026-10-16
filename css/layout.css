@@ -51,9 +51,35 @@ section > p { color: var(--muted); max-width: 700px; }
 
 footer {
     text-align: center;
-    padding: 30px 8%;
+    padding: 40px 8% 30px;
     color: var(--muted);
     font-size: 14px;
+    background-color: var(--white);
+    border-top: 1px solid #f5d5e2;
+}
+
+.footer-tagline {
+    color: var(--dark-pink);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-contact {
+    margin-bottom: 10px;
+}
+
+.footer-contact a {
+    color: var(--dark-pink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-contact a:hover { color: var(--pink); }
+
+.footer-copy {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
 }
 
 @media (max-width: 768px) {
