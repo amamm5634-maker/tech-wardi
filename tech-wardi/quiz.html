@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>تحدي الوعي | تِك وردي</title>
+    <meta name="theme-color" content="#d94f83">
+ <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="quiz.css">
+</head>
+
+<body data-page="quiz">
+
+    <!-- SVG defs لتدرج اللهب -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <linearGradient id="flameGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%"   stop-color="#ffd93d"/>
+                <stop offset="45%"  stop-color="#ff8c42"/>
+                <stop offset="100%" stop-color="#d94040"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+
+<header class="site-header">
+    <nav class="navbar" aria-label="القائمة الرئيسية">
+        <a href="index.html" class="logo">تِك وردي 💗</a>
+
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="فتح القائمة"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="main-navigation">
+            <li>
+                <a href="index.html">الرئيسية</a>
+            </li>
+            <li>
+                <a href="wall.html">حائط الأمل</a>
+            </li>
+            <li>
+                <a href="quiz.html" aria-current="page">تحدي الوعي</a>
+            </li>
+            <li>
+                <a href="awareness.html">التكنولوجيا و الصحة</a>
+            </li>
+            <li>
+                <a href="videos.html">فيديوهات توعوية</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main>
+
+        <header class="page-header">
+            <h1>تحدي الوعي</h1>
+            <p>اختبري معلوماتك عن سرطان الثدي وتعلّمي معلومات جديدة.</p>
+        </header>
+
+        <section id="quiz">
+            <div class="quiz-launcher">
+                <button id="start-quiz" type="button" class="quiz-start-btn">
+                    <svg class="quiz-start-icon" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="6"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                    <span>ابدأي التحدي</span>
+                </button>
+                <p id="quiz-result" class="quiz-launcher-result" aria-live="polite"></p>
+            </div>
+
+            <div id="quiz-modal" class="quiz-modal is-hidden"
+                 role="dialog" aria-modal="true" aria-label="تحدي الوعي">
+                <div class="quiz-modal-backdrop"></div>
+                <div class="quiz-modal-panel">
+                    <button id="quiz-close" type="button" class="quiz-modal-close" aria-label="إغلاق">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <div id="quiz-container"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>تِك وردي 💗 — معًا لنشر الوعي والأمل.</p>
+    </footer>
+
+    <!-- Supabase (اختياري — احذفه إن لم تكن تستخدمه) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js" defer></script>
+<script src="quiz.js" defer></script>
+
+</body>
+</html>

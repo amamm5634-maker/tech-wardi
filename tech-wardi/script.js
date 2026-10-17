@@ -374,3 +374,125 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startAnimation();
 });
+
+/* ستارة الانتقال بين صفحات تِك وردي */
+(() => {
+    const curtain = document.createElement("div");
+    curtain.className = "page-transition";
+    curtain.setAttribute("aria-hidden", "true");
+
+    const logo = document.createElement("div");
+    logo.className = "page-transition-logo";
+    logo.textContent = "تِك وردي 💗";
+
+    curtain.appendChild(logo);
+    document.body.appendChild(curtain);
+
+    let navigating = false;
+
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest("a[href]");
+
+        if (!link || navigating) return;
+
+        // احترام فتح الرابط في تبويب جديد أو استخدام أزرار التعديل
+        if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey ||
+            link.target === "_blank" ||
+            link.hasAttribute("download")
+        ) {
+            return;
+        }
+
+        let destination;
+
+        try {
+            destination = new URL(link.href, window.location.href);
+        } catch {
+            return;
+        }
+
+        // لا نتدخل في الروابط الخارجية أو غير المناسبة للانتقال
+        if (
+            destination.origin !== window.location.origin ||
+            !["http:", "https:"].includes(destination.protocol)
+        ) {
+            return;
+        }
+
+        // تجاهل الانتقال لنفس الصفحة أو لنفس موضعها
+        if (
+            destination.pathname === window.location.pathname &&
+            destination.search === window.location.search
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+        navigating = true;
+
+        curtain.classList.add("is-active");
+
+        // فتح الصفحة بعد ظهور الستارة
+        setTimeout(() => {
+            window.location.href = destination.href;
+        }, 450);
+    });
+})();
+
+/* ===== العد التنازلي لفعالية تِك وردي ===== */
+(() => {
+    const countdown = document.getElementById("event-countdown");
+
+    // لا ينفذ الكود إلا في الصفحة التي تحتوي على العداد.
+    if (!countdown) return;
+
+    // 10 صباحًا بتوقيت السودان (UTC+02:00).
+    const eventDate = new Date("2026-10-20T10:00:00+02:00").getTime();
+
+    const daysElement = document.getElementById("countdown-days");
+    const hoursElement = document.getElementById("countdown-hours");
+    const minutesElement = document.getElementById("countdown-minutes");
+    const secondsElement = document.getElementById("countdown-seconds");
+    const messageElement = document.getElementById("countdown-message");
+
+    const pad = (number) => String(number).padStart(2, "0");
+
+    function updateCountdown() {
+        const remaining = eventDate - Date.now();
+
+        if (remaining <= 0) {
+            daysElement.textContent = "00";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
+
+            messageElement.textContent =
+                "حان وقت انطلاق فعالية تِك وردي! 💗";
+            messageElement.hidden = false;
+
+            clearInterval(timer);
+            return;
+        }
+
+        const totalSeconds = Math.floor(remaining / 1000);
+
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        daysElement.textContent = pad(days);
+        hoursElement.textContent = pad(hours);
+        minutesElement.textContent = pad(minutes);
+        secondsElement.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+})();
