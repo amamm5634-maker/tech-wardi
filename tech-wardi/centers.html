@@ -6,30 +6,59 @@
     <title>مراكز الفحص | تِك وردي</title>
     <meta name="description" content="قائمة بمراكز الفحص والعلاج للتوعية بسرطان الثدي.">
     <meta name="theme-color" content="#d94f83">
-<link rel="stylesheet" href="css/common.css">
+
+    <!-- ملفات الـ CSS الخاصة بالموقع الأساسي -->
+    <link rel="stylesheet" href="css/common.css">
+    
+    <!-- تنسيقات صفحة المراكز -->
     <link rel="stylesheet" href="centers.css">
 </head>
 <body>
 
-    <!-- شريط علوي مستقل -->
-    <header class="simple-header">
-        <a href="index.html" class="back-link">← الرئيسية</a>
-        <span class="header-title">مراكز الفحص</span>
-        <span class="header-spacer"></span>
+    <!-- شريط التنقل الموحد (منقول حرفياً من index.html) -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="القائمة الرئيسية">
+            <a href="index.html" class="logo">تِك وردي 💗</a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                aria-controls="main-navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="main-navigation">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="wall.html">حائط الأمل</a></li>
+                <li><a href="quiz.html">تحدي الوعي</a></li>
+                <li><a href="awareness.html">التكنولوجيا و الصحة</a></li>
+                <li><a href="videos.html">فيديوهات توعوية</a></li>
+                <li><a href="centers.html" aria-current="page">مراكز الفحص</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
 
+        <!-- مقدمة الصفحة مع الصورة والخلفية الزجاجية -->
         <section class="centers-intro">
-            <span class="centers-eyebrow">دليل المراكز</span>
-            <h1>مراكز الفحص</h1>
-            <p>
-                هذه القائمة تعرض بعض مراكز الفحص والعلاج المتاحة،
-                مع روابط مباشرة لموقع كل مركز على خرائط غوغل
-                لتسهيل الوصول إليها.
-            </p>
+            <div class="centers-intro-content">
+                <span class="centers-eyebrow">دليل المراكز</span>
+                <h1>مراكز الفحص</h1>
+                <p>
+                    هذه القائمة تعرض بعض مراكز الفحص والعلاج المتاحة،
+                    مع روابط مباشرة لموقع كل مركز على خرائط غوغل
+                    لتسهيل الوصول إليها.
+                </p>
+            </div>
         </section>
 
+        <!-- قائمة المراكز -->
         <section class="centers-section" aria-label="قائمة المراكز">
             <div class="centers-section-head">
                 <h2>المراكز المتاحة</h2>
@@ -37,12 +66,14 @@
             </div>
 
             <div class="centers-scroll-wrap">
+                <!-- هنا يتم إدراج البطاقات برمجياً بواسطة centers.js -->
                 <div class="centers-scroll" id="centers-list" tabindex="0"></div>
             </div>
 
             <p class="centers-hint" aria-hidden="true">↓ مرّري للأسفل لرؤية جميع المراكز</p>
         </section>
 
+        <!-- مشاركة الصفحة -->
         <section class="centers-share" aria-label="شاركي الصفحة">
             <h2>شاركي هذه القائمة</h2>
             <p>قد تكون هذه الصفحة سببًا في وصول شخص إلى الفحص المناسب.</p>
@@ -63,10 +94,21 @@
 
     </main>
 
-    <footer class="simple-footer">
-        <p>تِك وردي 💗 — معًا لنشر الوعي والأمل.</p>
+    <!-- التذييل الموحد (منقول حرفياً من index.html) -->
+    <footer class="site-footer">
+        <a href="index.html" class="footer-logo">تِك وردي 💗</a>
+        <p>بالتكنولوجيا ننشر الوعي، وبالمعرفة نصنع الأمل.</p>
+        <p class="footer-credit">طلاب كلية علوم الحاسوب – جامعة بحري</p>
+        <p class="footer-copy">© 2026 تِك وردي | TECH WARDI</p>
     </footer>
 
+    <!-- سكربت Supabase (لضمان عمل ستارة الانتقال والميزات المشتركة) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- سكربت الموقع الأساسي -->
+    <script src="script.js"></script>
+    
+    <!-- سكربت صفحة المراكز -->
     <script src="centers.js" defer></script>
 
 </body>
