@@ -7,18 +7,18 @@
     "use strict";
 
     // ============================================================
-    // 1. البيانات (استبدلها بالبيانات الحقيقية لاحقاً)
+    // 1. البيانات
     // ============================================================
     const centersData = [
-       { name: "مستشفى الخرطوم لعلاج الاورام(الذرة)", location: "وسط الخرطوم – شارع القصر", mapsUrl: "مستشفى الخرطوم لعلاج الأورام" },
-        { name: "مركز الضمان للاورام", location: "ولاية الشمالية - مروي", mapsUrl: "https://maps.app.goo.gl/GnYL3zViFWk8UsLy8?g_st=ac" },
-        { name: "مستشفى حاج الصافي التعليمي", location: "ولاية الخرطوم - بحري", mapsUrl: "https://maps.app.goo.gl/VTXdXfcBrkMhxTyAA" },
-        { name: "مركز النادر الطبي لعلاج الاورام", location: "امدرمان - حي الروضة", mapsUrl: "https://maps.app.goo.gl/GuySoiEmZhE73Bxv6?g_st=ac" },
-        { name: "مركز طيبة للاورام", location: "خرطوم 3 - شارع عبد الفضيل الماظ", mapsUrl: "https://maps.app.goo.gl/nypamhL2NvnkYw118?g_st=ac" },
-        { name: "المعهد القومي للاورام", location: "ولاية الجزيرة - مدني", mapsUrl: "https://maps.app.goo.gl/H2rfD4DqSoxQcvo18?g_st=ac" },
-        { name: "مركز علاج الاورام و ابحاث السرطان", location: "ولاية نهر النيل - شندي", mapsUrl: "https://maps.app.goo.gl/Ty3UDzwd4UCBLZuM6" },
-        { name: "مركز بورتسودان لعلاج الاورام", location: "ولاية البحر الأحمر - بورتسودان", mapsUrl: "https://maps.app.goo.gl/2eFmuBNT5mMAMaQNA" },
-        { name: "مركز النيل الابيض للاورام", location: "ولاية النيل الابيض - كوستي", mapsUrl: "https://maps.app.goo.gl/YTB2vE5JXYiH8oYa8?g_st=ac" }, ];
+        { name: "مركز فحص الثدي التخصصي", location: "ولاية الخرطوم – حي الرياض", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Khartoum+Riyadh+Sudan" },
+        { name: "مستشفى الخرطوم التعليمي", location: "ولاية الخرطوم – شارع الجمهورية", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Khartoum+Teaching+Hospital+Sudan" },
+        { name: "مركز الأمل للكشف المبكر", location: "ولاية الخرطوم – بحري، شمبات", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Shambat+Bahri+Sudan" },
+        { name: "مركز بحري للأورام", location: "ولاية الخرطوم – بحري، كافوري", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Kafouri+Bahri+Sudan" },
+        { name: "مركز إسعاد الطبي", location: "ولاية الخرطوم – أم درمان، الموردة", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Omdurman+Sudan" },
+        { name: "مستشفى الجزيرة التعليمي", location: "ولاية الجزيرة – ودمدني", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Wad+Madani+Hospital+Sudan" },
+        { name: "مستشفى بورتسودان التعليمي", location: "ولاية البحر الأحمر – بورتسودان", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Port+Sudan+Teaching+Hospital" },
+        { name: "مركز النيل الأزرق للكشف", location: "ولاية النيل الأزرق – الدمازين", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Ad+Damazin+Sudan" }
+    ];
 
     // ============================================================
     // 2. أدوات DOM المدمجة
@@ -48,6 +48,15 @@
     // 3. الأيقونات
     // ============================================================
     const MAP_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+    
+    // أيقونة القلب الطبي (اللون الوردي مباشر)
+    const HEART_MED_ICON = `
+        <svg viewBox="0 0 24 24" fill="#d94f83" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <path d="M12 7v8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M8 11h8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+    `;
 
     // ============================================================
     // 4. المنطق الأساسي
@@ -60,7 +69,7 @@
         ui.shareBtn = $("#share-centers");
         ui.shareStatus = $("#share-status");
 
-        if (!ui.list) return; // الصفحة لا تحتوي على القائمة
+        if (!ui.list) return; 
 
         renderList();
         if (ui.shareBtn) initShare();
@@ -84,7 +93,8 @@
     function buildCard(center) {
         const card = el("article", { class: "centers-card" });
         
-        const icon = el("span", { class: "centers-icon", "aria-hidden": "true", text: "🏥" });
+        const icon = el("span", { class: "centers-icon", "aria-hidden": "true" });
+        icon.innerHTML = HEART_MED_ICON;
 
         const body = el("div", { class: "centers-body" }, [
             el("h3", { class: "centers-name", text: center.name }),
