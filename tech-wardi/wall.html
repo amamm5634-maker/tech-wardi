@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حائط الأمل | تِك وردي 💗</title>
+    <meta name="description"
+          content="شارك رسالة أمل ودعم في مبادرة تِك وردي للتوعية بسرطان الثدي.">
+
+    <meta name="theme-color" content="#fff0f5">
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/wall.css">
+</head>
+
+<body>
+
+    <!-- القائمة الرئيسية المشتركة -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="القائمة الرئيسية">
+
+            <a href="index.html" class="logo">تِك وردي 💗</a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                aria-controls="main-navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="main-navigation">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li>
+                    <a href="wall.html" aria-current="page">حائط الأمل</a>
+                </li>
+                <li><a href="quiz.html">تحدي الوعي</a></li>
+                <li><a href="awareness.html">التكنولوجيا في خدمة الصحة</a></li>
+                <li><a href="videos.html">الفيديوهات التوعوية</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main class="wall-page">
+
+        <!-- مقدمة حائط الأمل -->
+        <section class="wall-hero">
+            <div class="wall-hero-content">
+
+                <span class="wall-eyebrow">💗 حائط الأمل 💗</span>
+
+                <h1>رسائل من القلب</h1>
+
+                <p>
+                    هنا نتشارك كلمات الدعم والتشجيع،
+                    لنمنح بعضنا قوة وأملًا في رحلتنا.
+                </p>
+
+                <a href="#write-message" class="wall-primary-button">
+                    ✍️ اكتب رسالتك الآن
+                </a>
+
+            </div>
+        </section>
+
+        <!-- محتوى حائط الأمل -->
+        <section class="wall-content" aria-label="رسائل الأمل">
+
+            <!-- الرسائل المعتمدة -->
+            <section class="wall-messages-area" aria-labelledby="wall-heading">
+
+                <div class="wall-section-heading">
+
+                    <div class="wall-heading-copy">
+                        <span class="wall-eyebrow">كلمات تجمعنا 💗</span>
+
+                        <h2 id="wall-heading">رسائل الأمل من مجتمعنا</h2>
+
+                        <p>
+                            كل كلمة صادقة قد تصنع فرقًا في قلب شخص آخر.
+                        </p>
+                    </div>
+
+                    <span
+                        class="wall-message-count"
+                        id="wall-message-count"
+                        aria-live="polite"
+                    >
+                        جاري تحميل الرسائل...
+                    </span>
+
+                </div>
+
+                <p
+                    class="wall-status"
+                    id="wall-status"
+                    role="status"
+                    aria-live="polite"
+                >
+                    نجهّز لك رسائل الأمل 💗
+                </p>
+
+                <div
+                    class="wall-messages-grid"
+                    id="wall-messages"
+                    aria-live="polite"
+                >
+                    <!-- يضيف JavaScript الرسائل المعتمدة هنا -->
+                </div>
+
+                <div class="wall-load-more-wrap" id="wall-load-more-wrap" hidden>
+                    <button
+                        type="button"
+                        class="wall-load-more"
+                        id="wall-load-more"
+                    >
+                        عرض المزيد من الرسائل
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- نموذج كتابة رسالة -->
+            <aside class="wall-form-card" id="write-message">
+
+                <div class="wall-form-heading">
+                    <span class="wall-form-icon" aria-hidden="true">💌</span>
+
+                    <h2>اكتب رسالتك</h2>
+
+                    <p>
+                        شارك بكلماتك التي تمنح الأمل والقوة
+                        لمن يحتاجها.
+                    </p>
+                </div>
+
+                <form id="wall-message-form">
+
+                    <label for="wall-name">اسمك (اختياري)</label>
+
+                    <input
+                        type="text"
+                        id="wall-name"
+                        name="name"
+                        placeholder="اكتب اسمك أو اتركه فارغًا"
+                        maxlength="50"
+                        autocomplete="name"
+                    >
+
+                    <label for="wall-message-input">رسالتك</label>
+
+                    <textarea
+                        id="wall-message-input"
+                        name="message"
+                        placeholder="اكتب كلماتك من القلب..."
+                        minlength="10"
+                        maxlength="300"
+                        rows="4"
+                        required
+                    ></textarea>
+
+                    <div class="wall-character-info">
+                        <span>من 10 إلى 300 حرف</span>
+                        <span id="wall-character-count" dir="ltr">0/300</span>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="wall-submit-button"
+                        id="wall-submit-button"
+                    >
+                        أرسل رسالتك 💗
+                    </button>
+
+                    <p class="wall-privacy-note">
+                        🔒 ستظهر رسالتك بعد مراجعتها والموافقة عليها.
+                    </p>
+
+                    <p
+                        class="wall-form-feedback"
+                        id="wall-form-feedback"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    ></p>
+
+                </form>
+            </aside>
+
+        </section>
+
+        <!-- ختام الصفحة -->
+        <footer class="wall-footer">
+            <span aria-hidden="true">♡</span>
+            <p>معًا... نزرع الأمل</p>
+            <span aria-hidden="true">♡</span>
+        </footer>
+
+    </main>
+
+    <!-- مكتبة Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- وظائف الموقع المشتركة -->
+    <script src="script.js"></script>
+
+    <!-- وظائف حائط الأمل -->
+    <script src="wall.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مراكز الفحص | تِك وردي</title>
+    <meta name="description" content="قائمة بمراكز الفحص والعلاج للتوعية بسرطان الثدي.">
+    <meta name="theme-color" content="#d94f83">
+
+    <link rel="stylesheet" href="centers.css">
+</head>
+<body>
+
+    <!-- شريط علوي مستقل -->
+    <header class="simple-header">
+        <a href="index.html" class="back-link">← الرئيسية</a>
+        <span class="header-title">مراكز الفحص</span>
+        <span class="header-spacer"></span>
+    </header>
+
+    <main>
+
+        <section class="centers-intro">
+            <span class="centers-eyebrow">دليل المراكز</span>
+            <h1>مراكز الفحص</h1>
+            <p>
+                هذه القائمة تعرض بعض مراكز الفحص والعلاج المتاحة،
+                مع روابط مباشرة لموقع كل مركز على خرائط غوغل
+                لتسهيل الوصول إليها.
+            </p>
+        </section>
+
+        <section class="centers-section" aria-label="قائمة المراكز">
+            <div class="centers-section-head">
+                <h2>المراكز المتاحة</h2>
+                <span class="centers-count" id="centers-count" aria-live="polite">…</span>
+            </div>
+
+            <div class="centers-scroll-wrap">
+                <div class="centers-scroll" id="centers-list" tabindex="0"></div>
+            </div>
+
+            <p class="centers-hint" aria-hidden="true">↓ مرّري للأسفل لرؤية جميع المراكز</p>
+        </section>
+
+        <section class="centers-share" aria-label="شاركي الصفحة">
+            <h2>شاركي هذه القائمة</h2>
+            <p>قد تكون هذه الصفحة سببًا في وصول شخص إلى الفحص المناسب.</p>
+
+            <button id="share-centers" type="button" class="centers-share-btn">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="18" cy="5" r="3"/>
+                    <circle cx="6" cy="12" r="3"/>
+                    <circle cx="18" cy="19" r="3"/>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                </svg>
+                <span>شاركي مع صديقاتك</span>
+            </button>
+
+            <p id="share-status" class="centers-share-status" aria-live="polite"></p>
+        </section>
+
+    </main>
+
+    <footer class="simple-footer">
+        <p>تِك وردي 💗 — معًا لنشر الوعي والأمل.</p>
+    </footer>
+
+    <script src="centers.js" defer></script>
+
+</body>
+</html>
